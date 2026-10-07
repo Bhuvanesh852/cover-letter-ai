@@ -1,0 +1,68 @@
+CoverLetter AI — automated test run
+2026-10-03 03:47:38 UTC
+Python 3.12.3
+
+test_company_hallucination (test_core.Acceptance.test_company_hallucination) ... ok
+test_end_to_end_offline_demo (test_core.Acceptance.test_end_to_end_offline_demo) ... ok
+test_hallucination_suite_blocks_fabrication (test_core.Acceptance.test_hallucination_suite_blocks_fabrication) ... ok
+test_negative_aws_not_claimed_and_flagged (test_core.Acceptance.test_negative_aws_not_claimed_and_flagged) ... ok
+test_prompt_injection_treated_as_data (test_core.Acceptance.test_prompt_injection_treated_as_data) ... ok
+test_slm_unavailable_no_silent_fallback (test_core.Acceptance.test_slm_unavailable_no_silent_fallback) ... ok
+ok
+test_edit_revalidated_and_versioned (test_core.Isolation.test_edit_revalidated_and_versioned) ... ok
+test_incremental_reindex_and_user_override (test_core.Isolation.test_incremental_reindex_and_user_override) ... ok
+test_no_cross_candidate_retrieval_and_delete (test_core.Isolation.test_no_cross_candidate_retrieval_and_delete) ... ok
+test_invalid_input_rejected (test_core.Safety.test_invalid_input_rejected) ... ok
+test_offline_guard_blocks_network_and_mcp_respects_kill_switch (test_core.Safety.test_offline_guard_blocks_network_and_mcp_respects_kill_switch) ... ok
+test_parsing_errors_are_friendly (test_core.Safety.test_parsing_errors_are_friendly) ... ok
+test_web_fetch_cleaning_and_ssrf_guard (test_core.Safety.test_web_fetch_cleaning_and_ssrf_guard) ... ok
+test_handshake_and_listing (test_mcp.Protocol.test_handshake_and_listing) ... ok
+test_tools_are_annotated_and_secrets_not_exposed (test_mcp.Protocol.test_tools_are_annotated_and_secrets_not_exposed) ... ok
+test_validation_errors_are_tool_errors_not_crashes (test_mcp.Protocol.test_validation_errors_are_tool_errors_not_crashes) ... ok
+ok
+ok----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 40956)
+
+test_real_server_process_starts_and_serves (test_mcp.Transports.test_real_server_process_starts_and_serves)
+Launch exactly what a buyer runs (python -m coverletter_ai) and talk to it. ... Traceback (most recent call last):
+  File "/usr/lib/python3.12/socketserver.py", line 692, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.12/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.12/socketserver.py", line 761, in __init__
+    self.handle()
+  File "/usr/lib/python3.12/http/server.py", line 438, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.12/http/server.py", line 404, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+           ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+ok
+test_stdio_subprocess_speaks_clean_jsonrpc (test_mcp.Transports.test_stdio_subprocess_speaks_clean_jsonrpc) ... ok
+test_claude_writes_app_verifies_end_to_end (test_mcp.Workflow.test_claude_writes_app_verifies_end_to_end) ... ok
+test_fully_hallucinated_letter_is_rejected (test_mcp.Workflow.test_fully_hallucinated_letter_is_rejected) ... ok
+test_import_folder_is_sandboxed (test_mcp.Workflow.test_import_folder_is_sandboxed) ... ok
+test_anthropic_style (test_providers.CloudProviders.test_anthropic_style) ... ok
+test_cache_hit_and_force (test_providers.CloudProviders.test_cache_hit_and_force) ... ok
+test_errors_fall_back_to_local_visibly (test_providers.CloudProviders.test_errors_fall_back_to_local_visibly) ... ok
+test_gating_offline_consent_key_model (test_providers.CloudProviders.test_gating_offline_consent_key_model) ... ok
+test_gemini_uses_header_not_url (test_providers.CloudProviders.test_gemini_uses_header_not_url) ... ok
+test_list_models_and_free_filter (test_providers.CloudProviders.test_list_models_and_free_filter) ... ok
+test_offline_mode_generates_locally_with_note (test_providers.CloudProviders.test_offline_mode_generates_locally_with_note) ... ok
+test_openai_compatible_blocks_hallucinations_and_minimises_data (test_providers.CloudProviders.test_openai_compatible_blocks_hallucinations_and_minimises_data) ... ok
+test_preview_shows_exact_payload (test_providers.CloudProviders.test_preview_shows_exact_payload) ... ok
+test_secrets_never_leak_and_file_is_private (test_providers.CloudProviders.test_secrets_never_leak_and_file_is_private) ... ok
+test_docx_odt_zip_structure (test_providers.Exports.test_docx_odt_zip_structure) ... ok
+test_every_format (test_providers.Exports.test_every_format) ... ok
+test_pdf_fallback_without_reportlab (test_providers.Exports.test_pdf_fallback_without_reportlab) ... ok
+test_batch_and_zip (test_providers.Extras.test_batch_and_zip) ... ok
+test_email_interview_variants (test_providers.Extras.test_email_interview_variants) ... ok
+
+
+----------------------------------------------------------------------
+Ran 40 tests in 3.665s
+
+OK
